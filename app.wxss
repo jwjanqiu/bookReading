@@ -1,0 +1,54 @@
+/**app.wxss**/
+page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.page{
+  width: 100%;
+  height: 100%;
+  background: #f6f6f6;
+  overflow-y: auto;
+  overflow-x: hidden; 
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+/* 主题颜色 */
+
+/* 深黑 */
+
+#dark-skin {
+  background: #000;
+  color: #999;
+}
+
+#dark-skin .bColor, #dark-skin .wux-cell-group__bd {
+  background: #000;
+}
+
+#dark-skin .borderColor, #dark-skin .wux-cell:after,
+#dark-skin .wux-cell-group__bd:after {
+  border-color: #999;
+}
+
+#dark-skin .bColor.fixed-center {
+  background: #555;
+}
+
+#dark-skin .mask {
+  opacity: 0;
+}

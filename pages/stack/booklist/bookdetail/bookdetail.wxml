@@ -1,0 +1,9 @@
+<!--pages/stack/booklist/bookdetail/bookdetail.wxml-->
+<view id='{{skin}}'>
+  <scroll-view wx:for="{{category}}" wx:key="{{index}}}" scroll-y="true">
+    <navigator class="stack-view" url="../booklist?collection={{collection}}&bookTypes={{bookTypes}}&id={{item._id}}">
+      <text class='stack-name'>{{item.title}}</text>
+    </navigator>
+    <view class='line'></view>
+  </scroll-view>
+</view>

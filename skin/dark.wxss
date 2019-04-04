@@ -1,0 +1,36 @@
+.dark-box {
+  background: #000 !important;
+}
+
+/*用户信息部分*/
+
+.dark-box .user-box {
+  background: #333 !important;
+  color: #999;
+}
+
+/*列表部分*/
+
+.dark-box .extra-box {
+  background: #333 !important;
+}
+
+.dark-box .extra-box .extra-item {
+  border-bottom: 1px solid #000 !important;
+}
+
+.dark-box .extra-box .item-head {
+  color: #999;
+}
+
+.dark-box .between-box {
+  background: #333 !important;
+}
+
+.dark-box .between-left {
+  background: #333 !important;
+}
+
+.dark-box .between-left .item-head {
+  color: #999;
+}

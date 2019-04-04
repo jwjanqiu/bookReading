@@ -1,0 +1,24 @@
+<view class='page' id='{{skin}}'>
+  <scroll-view wx:for='{{stack}}' wx:key='{{index}}' scroll-y='true'>
+    <text>{{item}}</text>
+  </scroll-view>
+  <view>
+    <view style='display:flex; justify-content:space-around;'>
+      <button wx:if="{{allData.last_chapter == ''}}" style='width:30%' bindtap='anotherPage' data-collection="{{allData.collection}}" data-id="{{allData.last_chapter}}" disabled='true'>
+        上一章
+      </button>
+      <button wx:else style='width:30%' bindtap='anotherPage' data-collection="{{allData.collection}}" data-id="{{allData.last_chapter}}">
+        上一章
+      </button>
+      <button style='width:40%' bindtap='directoryPage' data-collection="{{allData.collection}}" data-book_types='{{bookTypes}}'>
+        目录
+      </button>
+      <button wx:if="{{allData.next_chapter == ''}}" style='width:30%' bindtap='anotherPage' data-collection="{{allData.collection}}" data-id="{{allData.next_chapter}}" disabled='true'>
+        下一章
+      </button>
+      <button wx:else style='width:30%' bindtap='anotherPage' data-collection="{{allData.collection}}" data-id="{{allData.next_chapter}}">
+        下一章
+      </button>
+    </view>
+  </view>
+</view>
