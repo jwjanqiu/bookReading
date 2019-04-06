@@ -23,8 +23,9 @@ Page({
     wx.request({
       url: url + '/getReading',
       data: {
-        'collection': collection,
-        'id': id
+        collection: collection,
+        id: id,
+        token: app.globalData.token
       },
       success: function(res) {
         console.log(res.data)
@@ -65,8 +66,9 @@ Page({
     wx.request({
         url: url + '/getReading',
         data: {
-          'collection': options.collection,
-          'id': id
+          collection: options.collection,
+          id: id,
+          token: app.globalData.token
         },
         success: function(res) {
           console.log(res.data)

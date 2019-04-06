@@ -38,7 +38,8 @@ Page({
       url: url + '/getCategory',
       data: {
         collection: that.data.collection,
-        page: that.data.page
+        page: that.data.page,
+        token: app.globalData.token
       },
       method: 'POST',
       success: function(res) {

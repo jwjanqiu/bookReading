@@ -1,6 +1,12 @@
 <!--pages/mine/mine.wxml-->
 <view id='{{skin}}' class='page'>
-  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">登录</button>
+  <view wx:if="{{token == ''}}">
+    <button bindtap='login'>登录</button>
+  </view>
+  <view wx:else>
+  <view>欢迎回来，{{userName}}</view>
+  </view>
+
   <switch wx:if='{{switchStatus == false}}' bindchange='switchChange' color='#F39C89' class='switch'>夜间模式</switch>
   <switch wx:else bindchange='switchChange' color='#F39C89' class='switch ' checked='true '>日间模式</switch>
 </view>

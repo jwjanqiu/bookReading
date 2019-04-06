@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+<view class='page' id='{{skin}}'>
+  <view style='display:flex; justify-content:space-around;'>
+    <text>用户名：</text>
+    <input type='text' bindinput='nameInput' placeholder='请输入用户名'></input>
+  </view>
+  <view style='display:flex; justify-content:space-around;'>
+    <text>密码：</text>
+    <input type='password' bindinput='passwordInput' placeholder='请输入密码'></input>
+  </view>
+  <view style='display:flex; justify-content:space-around;'>
+    <button form-type="submit" type='primary' bindtap='login'>登录</button>
+  </view>
+</view>

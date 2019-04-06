@@ -7,13 +7,18 @@ Page({
    */
   data: {
     skin: "",
-    switchStatus: false
+    switchStatus: false,
+    userName: '',
+    token: ''
   },
 
-  getPhoneNumber(e) {
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
+  /**
+   * 登录
+   */
+  login: function(e) {
+    wx.redirectTo({
+      url: '../login/login',
+    })
   },
 
   /**
@@ -64,6 +69,10 @@ Page({
         }
       },
     })
+    that.setData({
+      userName: app.globalData.userName,
+      token: app.globalData.token
+    })
   },
 
   /**
@@ -78,6 +87,13 @@ Page({
    */
   onShow: function() {
     app.setSkin(this)
+    console.log(app.globalData)
+    var that = this
+    that.setData({
+      userName: app.globalData.userName,
+      token: app.globalData.token
+    })
+    console.log(that.data)
   },
 
   /**

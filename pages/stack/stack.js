@@ -28,7 +28,8 @@ Page({
       // url: 'https://www.easy-mock.com/mock/5c8b792b0e11997fba90a4ef/getArticInfo',
       url: url + '/getAllBook',
       data: {
-        page: that.data.page
+        page: that.data.page,
+        token: app.globalData.token
       },
       method: 'POST',
       success: function(res) {
