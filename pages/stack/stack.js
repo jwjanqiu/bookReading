@@ -18,70 +18,83 @@ Page({
   getAllBook: function(message) {
     var url = app.globalData.url
     var that = this
-    wx.showNavigationBarLoading()
-    if (message != "") {
-      wx.showLoading({
-        title: message,
+    if (app.globalData.token == '') {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
       })
-    }
-    wx.request({
-      // url: 'https://www.easy-mock.com/mock/5c8b792b0e11997fba90a4ef/getArticInfo',
-      url: url + '/getAllBook',
-      data: {
-        page: that.data.page,
-        token: app.globalData.token
-      },
-      method: 'POST',
-      success: function(res) {
-        console.log(res.data)
-        //请求后关闭请求标志
-        wx.hideNavigationBarLoading()
-        if (message != "") {
-          wx.hideLoading()
-        }
-        //获取已有数据
-        var stackTem = that.data.stack
-        //状态码为1时进行拼装
-        if (res.data.code == 1) {
-          if (that.data.page == 1) {
-            stackTem = []
+      setTimeout(function() {
+        wx.redirectTo({
+          url: '../login/login',
+        })
+      }, 1000)
+    } else {
+      wx.showNavigationBarLoading()
+      if (message != "") {
+        wx.showLoading({
+          title: message,
+        })
+      }
+      wx.request({
+        // url: 'https://www.easy-mock.com/mock/5c8b792b0e11997fba90a4ef/getArticInfo',
+        url: url + '/getAllBook',
+        data: {
+          page: that.data.page,
+          token: app.globalData.token
+        },
+        method: 'POST',
+        success: function(res) {
+          console.log(res.data)
+          //请求后关闭请求标志
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
           }
-          //新请求数据
-          var stack = res.data.data
-          //新请求数据长度比每页数据长度小，表明无更多数据
-          if (stack.length < that.data.pageSize) {
-            that.setData({
-              stack: stackTem.concat(stack),
-              hasMoreData: false
-            })
+          //获取已有数据
+          var stackTem = that.data.stack
+          //状态码为1时进行拼装
+          if (res.data.code == 1) {
+            if (that.data.page == 1) {
+              stackTem = []
+            }
+            //新请求数据
+            var stack = res.data.data
+            //新请求数据长度比每页数据长度小，表明无更多数据
+            if (stack.length < that.data.pageSize) {
+              that.setData({
+                stack: stackTem.concat(stack),
+                hasMoreData: false
+              })
+            } else {
+              //反之有数据，页数加1
+              that.setData({
+                stack: stackTem.concat(stack),
+                hasMoreData: true,
+                page: that.data.page + 1
+              })
+            }
           } else {
-            //反之有数据，页数加1
-            that.setData({
-              stack: stackTem.concat(stack),
-              hasMoreData: true,
-              page: that.data.page + 1
+            //状态码不为1时，展示错误原因
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
             })
           }
-        } else {
-          //状态码不为1时，展示错误原因
+        },
+        fail: function(res) {
+          //请求后关闭请求标志
+          wx.hideNavigationBarLoading()
+          if (message != "") {
+            wx.hideLoading()
+          }
           wx.showToast({
-            title: res.data.msg,
+            title: '加载数据失败',
             icon: 'none'
           })
         }
-      },
-      fail: function(res) {
-        //请求后关闭请求标志
-        wx.hideNavigationBarLoading()
-        if (message != "") {
-          wx.hideLoading()
-        }
-        wx.showToast({
-          title: '加载数据失败',
-          icon: 'none'
-        })
-      }
-    })
+      })
+    }
+
   },
 
   /**
