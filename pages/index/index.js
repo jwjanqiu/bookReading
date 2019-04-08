@@ -20,6 +20,8 @@ Page({
   //   })
   // },
   onLoad: function() {
+    //设置皮肤
+    app.setSkin(this)
     var count = setInterval(() => {
       this.setData({
         time: this.data.time - 1

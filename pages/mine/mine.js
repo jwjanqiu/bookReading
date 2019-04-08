@@ -22,28 +22,6 @@ Page({
   },
 
   /**
-   * 退出登录
-   */
-  logout: function(e) {
-    var that = this
-    wx.request({
-      url: app.globalData.url + '/logout',
-      data: {
-        token: app.globalData.token
-      },
-      method: "POST",
-      success: function(res) {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none'
-        })
-        that.onLoad()
-      }
-    })
-    app.globalData.token = ''
-  },
-
-  /**
    * 夜间模式
    */
   switchChange: function(e) {
@@ -51,6 +29,7 @@ Page({
     //获取开关状态
     var checkedValue = e.detail.value
     var skin
+    //根据开关选取皮肤
     if (checkedValue) {
       skin = 'dark'
     } else {
@@ -109,13 +88,11 @@ Page({
    */
   onShow: function() {
     app.setSkin(this)
-    console.log(app.globalData)
     var that = this
     that.setData({
       userName: app.globalData.userName,
       token: app.globalData.token
     })
-    console.log(that.data)
   },
 
   /**

@@ -1,4 +1,4 @@
-// pages/leader/leader.js
+// pages/mine/settings/settings.js
 const app = getApp()
 Page({
 
@@ -10,9 +10,40 @@ Page({
   },
 
   /**
+   * 退出登录
+   */
+  logout: function(e) {
+    var that = this
+    wx.request({
+      url: app.globalData.url + '/logout',
+      data: {
+        token: app.globalData.token
+      },
+      method: "POST",
+      success: function(res) {
+        wx.removeStorage({
+          key: 'userInfo',
+          success: function(res) {
+            app.globalData.token = ''
+            app.globalData.userName = ''
+          },
+        })
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+        wx.switchTab({
+          url: '../mine',
+        })
+      }
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    //设置皮肤
     app.setSkin(this)
   },
 
@@ -27,6 +58,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    //设置皮肤
     app.setSkin(this)
   },
 

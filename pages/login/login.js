@@ -33,6 +33,8 @@ Page({
    */
   login: function(e) {
     var that = this
+    var timestamp = Date.parse(new Date());
+    timestamp = timestamp / 1000;
     // console.log(e)
     var url = app.globalData.url
     wx.request({
@@ -43,15 +45,26 @@ Page({
       },
       method: "POST",
       success: function(res) {
-        console.log(res.data)
+        //登录不成功返回信息
         if (res.data.code != 1) {
           wx.showToast({
             title: res.data.msg,
             icon: 'none'
           })
         } else {
+          //登录成功后保存到全局变量
           app.globalData.token = res.data.data.token
           app.globalData.userName = res.data.data.nick_name
+          //登录成功后保存缓存
+          wx.setStorage({
+            key: 'userInfo',
+            data: {
+              token: res.data.data.token,
+              userName: res.data.data.nick_name,
+              expireDate: timestamp + 604800
+            },
+          })
+          //登录成功后跳转到分类
           wx.showToast({
             title: res.data.msg,
             success: function() {
@@ -72,7 +85,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    //设置皮肤
+    app.setSkin(this)
   },
 
   /**
@@ -86,7 +100,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    //设置皮肤
+    app.setSkin(this)
   },
 
   /**

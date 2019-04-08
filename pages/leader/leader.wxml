@@ -1,3 +1,4 @@
 <!--pages/leader/leader.wxml-->
-<view>
+<view class='page' id='{{skin}}'>
+
 </view>

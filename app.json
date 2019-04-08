@@ -11,7 +11,8 @@
     "pages/mine/mine",
     "pages/mine/news/news",
     "pages/logs/logs",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/mine/settings/settings"
   ],
   "window": {
     "backgroundTextStyle": "light",

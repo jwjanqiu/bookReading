@@ -21,7 +21,22 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    var that = this
+    //获取storage的token
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+        if (res) {
+          //有数据且在有效期内把缓存数据赋值给全局变量
+          var timestamp = Date.parse(new Date());
+          timestamp = timestamp / 1000;
+          if (timestamp <= res.data.expireDate) {
+            that.globalData.token = res.data.token
+            that.globalData.userName = res.data.userName
+          }
+        }
+      },
+    })
     // 登录
     wx.login({
       success: res => {

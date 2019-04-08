@@ -1,0 +1,4 @@
+<!--pages/mine/settings/settings.wxml-->
+<view class='page' id='{{skin}}'>
+  <button bindtap='logout'>退出登录</button>
+</view>
