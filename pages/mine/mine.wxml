@@ -5,6 +5,7 @@
   </view>
   <view wx:else>
   <view>欢迎回来，{{userName}}</view>
+  <button bindtap='logout'>退出登录</button>
   </view>
 
   <switch wx:if='{{switchStatus == false}}' bindchange='switchChange' color='#F39C89' class='switch'>夜间模式</switch>

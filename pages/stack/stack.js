@@ -24,7 +24,7 @@ Page({
         icon: 'none',
       })
       setTimeout(function() {
-        wx.redirectTo({
+        wx.navigateTo({
           url: '../login/login',
         })
       }, 1000)
@@ -118,6 +118,7 @@ Page({
    */
   onShow: function() {
     app.setSkin(this)
+    this.onLoad()
   },
 
   /**

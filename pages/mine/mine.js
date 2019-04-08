@@ -22,6 +22,28 @@ Page({
   },
 
   /**
+   * 退出登录
+   */
+  logout: function(e) {
+    var that = this
+    wx.request({
+      url: app.globalData.url + '/logout',
+      data: {
+        token: app.globalData.token
+      },
+      method: "POST",
+      success: function(res) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+        that.onLoad()
+      }
+    })
+    app.globalData.token = ''
+  },
+
+  /**
    * 夜间模式
    */
   switchChange: function(e) {

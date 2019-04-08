@@ -50,6 +50,5 @@
         "selectedIconPath": "assets/icons/mine_sel.png"
       }
     ]
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }
