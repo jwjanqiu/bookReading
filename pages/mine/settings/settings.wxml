@@ -1,4 +1,17 @@
 <!--pages/mine/settings/settings.wxml-->
 <view class='page' id='{{skin}}'>
-  <button bindtap='logout'>退出登录</button>
+  <view>
+    <button bindtap='btnclick'>修改用户信息</button>
+    <modal title="修改用户信息" confirm-text="确认" cancel-text="取消" hidden="{{onOff}}" bindconfirm="modalConfirm" bindcancel="modalCancel">
+      <text>用户名</text>
+      <input type='text' bindinput='userNameInput' value='{{userName}}'></input>
+      <text>新密码</text>
+      <input type='password' bindinput='passwordInput' value='{{password}}'></input>
+      <text>确认密码</text>
+      <input type='password' bindinput='confirmPasswordInput' value='{{confirmPassword}}'></input>
+    </modal>
+  </view>
+  <view>
+    <button bindtap='logout'>退出登录</button>
+  </view>
 </view>
