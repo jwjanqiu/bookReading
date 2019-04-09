@@ -74,11 +74,24 @@ Page({
               })
             }
           } else {
-            //状态码不为1时，展示错误原因
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'none'
-            })
+            if (res.data.code == 401) {
+              //状态码不为1时，展示错误原因
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'none'
+              })
+              setTimeout(function() {
+                wx.navigateTo({
+                  url: '../login/login',
+                })
+              }, 500)
+            } else {
+              //状态码不为1时，展示错误原因
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'none'
+              })
+            }
           }
         },
         fail: function(res) {
