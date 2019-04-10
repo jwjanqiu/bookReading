@@ -10,6 +10,9 @@ Page({
     images: {}
   },
 
+  /**
+   * 照片自适应
+   */
   imageLoad: function(e) {
     var $width = e.detail.width, //获取图片真实宽度
       $height = e.detail.height,
@@ -24,6 +27,16 @@ Page({
     }
     this.setData({
       images: image
+    })
+  },
+
+  /**
+   * 预览图片
+   */
+  imgPreview: function(e) {
+    wx.previewImage({
+      urls: e.currentTarget.dataset.list,
+      current: e.currentTarget.dataset.current
     })
   },
 

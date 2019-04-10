@@ -4,6 +4,6 @@
     <view class="page__bt-readings">{{detail.title}}</view>
   </view>
   <view wx:for='{{detail.url}}' wx:key='{{index}}'>
-    <image src="{{item}}" bindload="imageLoad" data-index="{{index}}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;" />
+    <image bindtap='imgPreview' data-list='{{detail.url}}' data-current='{{item}}' src="{{item}}" bindload="imageLoad" data-index="{{index}}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;" />
   </view>
 </view>
