@@ -4,7 +4,7 @@
       <navigator class="stack-view" url="booklist/booklist?collection={{item.collection}}&bookTypes={{item.bookTypes}}">
         <image src="{{item.typeCover}}" class='stack-image'></image>
         <text class='stack-name'>{{item.bookTypes}}</text>
-        <text class='stack-numb'>{{item.bookNumb}}</text>
+        <!-- <text class='stack-numb'>{{item.bookNumb}}</text> -->
       </navigator>
       <view class='line'></view>
     </scroll-view>

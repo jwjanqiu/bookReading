@@ -1,2 +1,9 @@
 <!--pages/leader/stories/stories.wxml-->
-<text>pages/leader/stories/stories.wxml</text>
+<view class='page' id='{{skin}}'>
+  <view class="page__bt">
+    <view class="page__bt-readings">{{detail.title}}</view>
+  </view>
+  <view wx:for='{{detail.url}}' wx:key='{{index}}'>
+    <image src="{{item}}" bindload="imageLoad" data-index="{{index}}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;" />
+  </view>
+</view>

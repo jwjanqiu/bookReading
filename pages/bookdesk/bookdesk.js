@@ -30,7 +30,7 @@ Page({
       //获取时
       var h = date.getHours()
       //获取分
-      var m = date.getMinutes()
+      var m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
       //获取秒
       var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
       //获取星期几
