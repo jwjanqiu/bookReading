@@ -9,7 +9,8 @@ Page({
     id: "",
     page: 1,
     pageSize: 10,
-    hasMoreData: true
+    hasMoreData: true,
+    page: true
   },
 
   /**
@@ -70,6 +71,7 @@ Page({
               that.setData({
                 stack: stackTem.concat(stack),
                 hasMoreData: true,
+                page: false,
                 page: that.data.page + 1
               })
             }
@@ -131,7 +133,6 @@ Page({
    */
   onShow: function() {
     app.setSkin(this)
-    this.onLoad()
   },
 
   /**

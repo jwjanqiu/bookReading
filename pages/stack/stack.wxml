@@ -1,4 +1,4 @@
-<view class='page' id='{{skin}}'>
+<view id='{{skin}}' class="{{page ? 'page' : ''}}">
   <view>
     <scroll-view wx:for="{{stack}}" wx:key="{{index}}}" scroll-y="true" style='height:100%'>
       <navigator class="stack-view" url="booklist/booklist?collection={{item.collection}}&bookTypes={{item.bookTypes}}">

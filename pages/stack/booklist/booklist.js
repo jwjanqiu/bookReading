@@ -9,7 +9,8 @@ Page({
     bookList: [],
     stack: [],
     allData: [],
-    bookTypes: ''
+    bookTypes: '',
+    page: true
   },
 
   /**
@@ -20,6 +21,9 @@ Page({
     var that = this
     var collection = e.target.dataset.collection
     var id = e.target.dataset.id
+    that.setData({
+      page: false
+    })
     wx.request({
       url: url + '/getReading',
       data: {
@@ -35,7 +39,12 @@ Page({
         }, () => {
           wx.pageScrollTo({
             scrollTop: 0,
-            duration: 100
+            duration: 100,
+            success: function() {
+              that.setData({
+                page: true
+              })
+            }
           })
         })
       }
