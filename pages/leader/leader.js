@@ -133,6 +133,8 @@ Page({
    */
   onShow: function() {
     app.setSkin(this)
+    //请求beautyList
+    this.getAllDailyBeauty('正在请求数据')
   },
 
   /**
