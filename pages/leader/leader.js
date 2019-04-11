@@ -64,14 +64,14 @@ Page({
             //新数据
             var beautyList = res.data.data
             //新请求数据长度比每页数据长度小，表明无更多数据
-            if (beautyList.length < that.data.pageSize) {
+            if (beautyList.count < that.data.pageSize) {
               that.setData({
-                daily_beauty: beautyTem.concat(beautyList),
+                daily_beauty: beautyTem.concat(beautyList.list),
                 hasMoreData: false
               })
             } else {
               that.setData({
-                daily_beauty: beautyTem.concat(beautyList),
+                daily_beauty: beautyTem.concat(beautyList.list),
                 page: that.data.page + 1,
                 hasMoreData: true
               })
@@ -118,7 +118,7 @@ Page({
   onLoad: function(options) {
     app.setSkin(this)
     //请求beautyList
-    this.getAllDailyBeauty('正在请求数据')
+    // this.getAllDailyBeauty('正在请求数据')
   },
 
   /**
@@ -134,7 +134,10 @@ Page({
   onShow: function() {
     app.setSkin(this)
     //请求beautyList
-    this.getAllDailyBeauty('正在请求数据')
+    if (this.data.daily_beauty.length <= 0) {
+      this.data.page = 1
+      this.getAllDailyBeauty('正在刷新数据')
+    }
   },
 
   /**

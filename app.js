@@ -66,7 +66,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    url: 'https://axinreading.qiuyunxin.com/api',
+    // url: 'https://axinreading.qiuyunxin.com/api',
+    url: 'http://xinreading.com/api',
     token: '',
     userName: ''
   },

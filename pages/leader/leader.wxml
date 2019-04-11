@@ -2,12 +2,15 @@
 <view id='{{skin}}'>
   <view>
     <scroll-view wx:for="{{daily_beauty}}" wx:key="{{index}}}" scroll-y="true">
-      <navigator class="stack-view" url="stories/stories?id={{item._id}}">
-        <image src="{{item.image}}" class='stack-image'></image>
-        <text class='stack-name'>{{item.title}}</text>
-        <!-- <text class='stack-numb'>{{item.bookNumb}}</text> -->
-      </navigator>
-      <view class='line'></view>
+      <text>{{item.key}}</text>
+      <view wx:for="{{item.value}}" wx:key="{{index}}">
+        <navigator class="stack-view" url="stories/stories?id={{item._id}}">
+          <image src="{{item.image}}" class='stack-image'></image>
+          <text class='stack-name'>{{item.title}}</text>
+          <!-- <text class='stack-numb'>{{item.bookNumb}}</text> -->
+        </navigator>
+        <view class='line'></view>
+      </view>
     </scroll-view>
   </view>
 </view>
