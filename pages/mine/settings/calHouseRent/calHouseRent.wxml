@@ -1,0 +1,62 @@
+<!--pages/mine/settings/calHouseRent/calHouseRent.wxml-->
+<view>
+
+  <view class='flex-wrp-row item'>
+    <view class='item-left flex-wrp-row'>
+      <image src='../../../../assets/icons/icon_add.png' class='icon-left' style='height:32px;width:32px' bindtap='add_new'></image>
+    </view>
+    <view class='item-right flex-wrp-row'>
+      <image src='../../../../assets/icons/icon_setting_fill.png' class='icon-left' style='height:32px;width:32px' bindtap='base_set'></image>
+    </view>
+    <view>
+      <modal title="本月水电费" confirm-text="确认" cancel-text="取消" hidden="{{addOnOff}}" bindconfirm="useModalConfirm" bindcancel="useModalCancel">
+        <text>本月用水：</text>
+        <input type='digit' bindinput='waterInput' value='{{water}}'></input>
+        <text>本月用电：</text>
+        <input type='digit' bindinput='electricInput' value='{{electric}}'></input>
+        <view wx:if='{{first==true}}'>
+          <text>上月用水：</text>
+          <input type='digit' bindinput='firstWaterInput' value='{{firstWater}}'></input>
+          <text>上月用电：</text>
+          <input type='digit' bindinput='firstElectricInput' value='{{firstElectric}}'></input>
+        </view>
+      </modal>
+    </view>
+    <view>
+      <modal title="基本设置" confirm-text="确认" cancel-text="取消" hidden="{{baseOnOff}}" bindconfirm="baseModalConfirm" bindcancel="baseModalCancel">
+        <view>
+          <text class='text'>电费基准：{{electric_charge}}元/度 水费基准： {{water_charge}}元/吨 基本房租：{{base_rent}}元</text>
+        </view>
+
+        <text>水费基准：</text>
+        <input type='digit' bindinput='waterInput' value='{{water}}'></input>
+        <text>电费基准：</text>
+        <input type='digit' bindinput='electricInput' value='{{electric}}'></input>
+        <text>基本房租：</text>
+        <input type='digit' bindinput='baseRentInput' value='{{baseRent}}'></input>
+      </modal>
+    </view>
+  </view>
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th">年/月/日</view>
+      <view class="th">水费</view>
+      <view class="th ">电费</view>
+      <view class="th ">总费用</view>
+    </view>
+    <block wx:for="{{listData}}" wx:key="{{index}}">
+      <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+        <view class="td">{{item.date}}</view>
+        <view class="td">{{item.water_charge}}</view>
+        <view class="td">{{item.electric_charge}}</view>
+        <view class="td">{{item.total_charge}}</view>
+      </view>
+      <view class="tr" wx:else>
+        <view class="td">{{item.date}}</view>
+        <view class="td">{{item.water_charge}}</view>
+        <view class="td">{{item.electric_charge}}</view>
+        <view class="td">{{item.total_charge}}</view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -12,7 +12,8 @@
     "pages/mine/news/news",
     "pages/logs/logs",
     "pages/login/login",
-    "pages/mine/settings/settings"
+    "pages/mine/settings/settings",
+    "pages/mine/settings/calHouseRent/calHouseRent"
   ],
   "window": {
     "backgroundTextStyle": "light",

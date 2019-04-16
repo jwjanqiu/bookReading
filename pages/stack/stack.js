@@ -10,7 +10,7 @@ Page({
     page: 1,
     pageSize: 10,
     hasMoreData: true,
-    page: true
+    classPage: true
   },
 
   /**
@@ -71,7 +71,7 @@ Page({
               that.setData({
                 stack: stackTem.concat(stack),
                 hasMoreData: true,
-                page: false,
+                classPage: false,
                 page: that.data.page + 1
               })
             }

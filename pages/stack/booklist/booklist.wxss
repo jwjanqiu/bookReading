@@ -1,4 +1,5 @@
 /* pages/stack/booklist/booklist.wxss */
+
 .book-list-root {
   display: flex;
   flex-direction: row;
@@ -41,4 +42,22 @@
 
 .line {
   border-bottom: 1rpx solid #f0f0f0;
+}
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.content {
+  margin-bottom: 46px;
+}
+
+.box {
+  flex: 1;
+}
+
+.sv {
+  height: 100%;
 }

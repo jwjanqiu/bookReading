@@ -16,7 +16,7 @@ Page({
   /**
    * 下一章或上一章
    */
-  anotherPage: function(e) {
+  anotherPage: function (e) {
     var url = app.globalData.url
     var that = this
     var collection = e.target.dataset.collection
@@ -31,7 +31,7 @@ Page({
         id: id,
         token: app.globalData.token
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res.data)
         that.setData({
           stack: res.data.data.content,
@@ -40,11 +40,6 @@ Page({
           wx.pageScrollTo({
             scrollTop: 0,
             duration: 100,
-            success: function() {
-              that.setData({
-                page: true
-              })
-            }
           })
         })
       }
@@ -54,7 +49,7 @@ Page({
   /**
    * 章节目录
    */
-  directoryPage: function(e) {
+  directoryPage: function (e) {
     var collection = e.currentTarget.dataset.collection
     var bookTypes = e.currentTarget.dataset.book_types
     wx.redirectTo({
@@ -65,7 +60,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var url = app.globalData.url
     var that = this
     var id = options.id ? options.id : ''
@@ -73,20 +68,20 @@ Page({
       bookTypes: options.bookTypes
     })
     wx.request({
-        url: url + '/getReading',
-        data: {
-          collection: options.collection,
-          id: id,
-          token: app.globalData.token
-        },
-        success: function(res) {
-          console.log(res.data)
-          that.setData({
-            stack: res.data.data.content,
-            allData: res.data.data
-          })
-        }
-      }),
+      url: url + '/getReading',
+      data: {
+        collection: options.collection,
+        id: id,
+        token: app.globalData.token
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          stack: res.data.data.content,
+          allData: res.data.data
+        })
+      }
+    }),
       wx.setNavigationBarTitle({
         title: options.bookTypes,
       }),
@@ -96,49 +91,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     app.setSkin(this)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

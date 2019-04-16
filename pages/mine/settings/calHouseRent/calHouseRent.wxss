@@ -1,0 +1,59 @@
+/* pages/mine/settings/calHouseRent/calHouseRent.wxss */
+
+.table {
+  border: 0px solid darkgray;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+
+.td {
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+}
+
+.bg-w {
+  background: snow;
+}
+
+.bg-g {
+  background: #e6f3f9;
+}
+
+.th {
+  width: 40%;
+  justify-content: center;
+  background: #36f;
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+
+/* 水平显示 */
+
+.flex-wrp-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  padding: 20rpx;
+  position: relative;
+}
+
+.item-left {
+  flex: 1; /* 重要 */
+  align-items: center;
+}
+
+.item-right {
+  position: relative;
+  align-items: center;
+}
