@@ -1,7 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+//引入高德地图
+var amapFile = require('../../libs/amap-wx.js')
 Page({
   data: {
     motto: '欢迎来到阿鑫读书',
@@ -22,6 +23,33 @@ Page({
   onLoad: function() {
     //设置皮肤
     app.setSkin(this)
+    var url = app.globalData.url
+    //上传定位
+    //初始化高德地图
+    var myAmapFun = new amapFile.AMapWX({
+      key: app.globalData.gaodeKey
+    });
+    //获取当前地理位置
+    myAmapFun.getRegeo({
+      success: function (data) {
+        //成功回调
+        // console.log(data)
+        wx.request({
+          url: url + '/uploadLocation',
+          data: {
+            location: data
+          },
+          method: 'POST',
+          success: function (res) {
+            console.log('上传成功')
+          }
+        })
+      },
+      fail: function (info) {
+        //失败回调
+        console.log(info)
+      }
+    })
     var count = setInterval(() => {
       this.setData({
         time: this.data.time - 1

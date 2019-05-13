@@ -16,6 +16,11 @@
       <button>房租计算</button>
     </navigator>
   </view>
+    <view>
+    <navigator url='getLocation/getLocation'>
+      <button>获取定位</button>
+    </navigator>
+  </view>
   <view>
     <button bindtap='logout'>退出登录</button>
   </view>

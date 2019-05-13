@@ -69,7 +69,9 @@ App({
     url: 'https://axinreading.qiuyunxin.com/api',
     // url: 'http://xinreading.com/api',
     token: '',
-    userName: ''
+    userName: '',
+    //高德地图Key
+    gaodeKey: 'd1bec8c33fb3b0bccaa871e98ac2c246'
   },
   setSkin: function(that) {
     wx.getStorage({
